@@ -1,0 +1,42 @@
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int x = 10;
+
+  @override
+  Widget build(BuildContext context) {
+    // print("rebuild");
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          // ignore: prefer_const_constructors
+          title: Text("Lottery app"),
+        ),
+        body: SafeArea(
+            child: Column(
+          children: [
+            Text(
+              x.toString(),
+              // ignore: prefer_const_constructors
+              style: TextStyle(fontSize: 50),
+            )
+          ],
+        )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            x++;
+            setState(() {});
+            //print(x.toString());
+          },
+          // ignore: prefer_const_constructors
+          child: Icon(Icons.add),
+        ),
+      ),
+    );
+  }
+}
